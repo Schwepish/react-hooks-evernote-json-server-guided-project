@@ -10,16 +10,22 @@ import Instructions from "./Instructions";
           Then complete the rest of your app before attempting to
           refactor to get this Content component to work.
 */
-function Content() {
+function Content({noteToShow,startEdit,onChangeForm,onEditForm,backToEdit}) {
+  
+
+
+
   const getContent = () => {
-    if (false) {
-      return <NoteEditor />;
-    } else if (false) {
-      return <NoteViewer />;
+    if (noteToShow.isEdited?true:false) {
+      return <NoteEditor noteToShow={noteToShow} onChangeForm={onChangeForm} onEditForm={onEditForm} backToEdit={backToEdit}/>;
+    } else if (noteToShow.isClicked?true:false) {
+      return <NoteViewer noteToShow={noteToShow} startEdit={startEdit}/>;
     } else {
       return <Instructions />;
     }
+    
   };
+  
 
   return <div className="master-detail-element detail">{getContent()}</div>;
 }

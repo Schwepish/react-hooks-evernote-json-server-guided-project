@@ -1,11 +1,13 @@
 import React from "react";
 
-function NoteViewer() {
+function NoteViewer({noteToShow,startEdit}) {
+  
+    
   return (
     <>
-      <h2>Title</h2>
-      <p>Body</p>
-      <button>Edit</button>
+      <h2>{noteToShow.title}</h2>
+      <p>{noteToShow.body}</p>
+      <button onClick={()=>startEdit(noteToShow)}>Edit</button>
     </>
   );
 }
